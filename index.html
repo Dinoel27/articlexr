@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Article Furniture Display Demo</title>
+    <script src="https://cdn.jsdelivr.net/gh/volumetrics-io/mrjs/dist/mr.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+    <mr-app debug="true">
+        <!-- Menu Panel -->
+        <mr-panel data-position="0 0 0" class="bar" style="position: fixed;">
+            <mr-div class="bar"> 
+                <mr-button class="button" id="button1" onclick="showModel('model1')">Model 1</mr-button>
+                <mr-button class="button" id="button2" onclick="showModel('model2')">Model 2</mr-button>
+                <mr-button class="button" id="button3" onclick="showModel('model3')">Model 3</mr-button>
+            </mr-div>
+        </mr-panel>
+
+        <!-- Models -->
+        <mr-entity id="model1" class="model visible">
+            <mr-model data-position="0 -1 -3" data-rotation="0 -45 0" data-comp-anchor="type: plane; label: table;"
+            src="./models/model1.glb"></mr-model>
+        </mr-entity>
+
+        <mr-entity id="model2" class="model hidden">
+            <mr-model data-position="0 -1 -3" data-rotation="0 -45 0" data-comp-anchor="type: plane; label: table;"
+            src="./models/model2.glb"></mr-model>
+        </mr-entity>
+
+        <mr-entity id="model3" class="model hidden">
+            <mr-model data-position="0 -1 -3" data-rotation="0 -45 0" data-comp-anchor="type: plane; label: table;"
+            src="./models/model3.glb"></mr-model>
+        </mr-entity>
+    </mr-app>
+
+</body>
+
+<script>
+function showModel(modelId) {
+    // Hide all models
+    const models = document.querySelectorAll('.model');
+    models.forEach(model => {
+        model.classList.remove('visible');
+        model.classList.add('hidden');
+    });
+
+    // Show the selected model
+    const selectedModel = document.getElementById(modelId);
+    if (selectedModel) {
+        selectedModel.classList.remove('hidden');
+        selectedModel.classList.add('visible');
+        console.log(`Displaying model: ${modelId}`);
+    } else {
+        console.error(`Model with ID ${modelId} not found.`);
+    }
+}
+</script>
+
+</html>
