@@ -19,15 +19,17 @@ body {
   position: relative;
   width: 80vw;
   height: 17vh;
+
+  overflow: hidden;
 }
 
 .button {
-  width: 80px;
+  width: 150px;
   height: 80px;
-  /* border-radius: 50%; */
-  /* border: 3px solid transparent; */
+  /* border-radius: 50%;
+  border: 3px solid transparent;
   cursor: pointer;
-  /* background-size: cover; */
+  background-size: cover;  */
 }
 
 img {
@@ -56,7 +58,7 @@ img {
 
 .model {
   /* Shared styling for models */
-  scale: 0.1;
+  scale: 0.5;
 }
 
 .circbutton
